@@ -81,9 +81,11 @@ Our approach is a **Greedy Nearest-Drone Strategy with Battery Safety Checks**.
 
 2. **Order Assignment:**
 
-   * As the orders are given in the input file, we check which of the idle drones are nearest.
-   * We occupy the nearest idle drone for the travel and set its status to non-idle for the travel time.
-   * If the nearest drone is not idle, we iterate to the next nearest until an idle drone is available.
+   * As the orders are given in the input file, first the orders are started in decreasing order.
+   * Then like if for the first order a drone A is the most feasible one. Then that drone is reserved for that travel path from t1 to t2.
+   * Then we go to the next order, and suppose A was the most feasible in this too, but as it is reserved from t1 to t2, we go to the next feasible drone.
+   * We occupy the most feasible drone for the travel and set its status to non-idle for the travel time.
+   * If the most feasible drone is not idle, we iterate to the next most feasible until an feasible drone is available.
    * Next iteration is done according to the order with the highest value.
    * If multiple orders are within reach, choose the one with the **earliest deadline**.
 
@@ -111,15 +113,78 @@ Our approach is a **Greedy Nearest-Drone Strategy with Battery Safety Checks**.
 #### 3.3 Pseudocode
 
 ```text
-For each turn t:
-    Activate new orders
-    For each idle drone d:
-        If battery < safety_threshold:
-            Send to nearest charging station
-        Else:
-            Assign nearest order with earliest deadline
-            Plan path: Depot → Professor → Charging Station
-            Execute next move in path
+// Initialize a schedule for each drone
+FOR EACH drone IN all_drones:
+    drone.schedule = new List<Reservation>()
+END FOR
+
+BEGIN INITIALIZATION
+    FOR EACH drone IN all_drones:
+        find_path_to_nearest_charging_station(drone)
+    END FOR
+END INITIALIZATION
+
+FOR t FROM 0 TO T_max-1:
+
+    // --- Planning and Reservation Phase ---
+    all_available_orders = get_all_unassigned_active_orders(t)
+    
+    // Sort orders: high value first, then earliest deadline
+    sort all_available_orders by value (descending), then by deadline (ascending)
+
+    FOR EACH order IN all_available_orders:
+        // Find the most feasible drone that is available in the future
+        potential_drones = find_all_drones()
+        sort potential_drones by distance to order.origin_depot (ascending)
+
+        FOR EACH drone IN potential_drones:
+            // Calculate when the drone could start this mission
+            estimated_start_turn = drone.is_idle ? t : drone.schedule.last_item.end_turn
+            
+            path = compute_manhattan_path(drone -> order.depot -> order.professor -> nearest_charging_station)
+            mission_duration = calculate_path_duration(path)
+            estimated_end_turn = estimated_start_turn + mission_duration
+
+            // --- Feasibility Check ---
+            has_time_conflict = check_schedule_for_overlap(drone, estimated_start_turn, estimated_end_turn)
+            
+            // For simplicity, we check current battery. A real system would predict future battery.
+            required_battery = calculate_total_energy_cost(path)
+            has_sufficient_battery = drone.battery >= required_battery
+            
+            IF NOT has_time_conflict AND has_sufficient_battery AND estimated_end_turn <= order.deadline:
+                // Reserve the drone if it's feasible
+                new_reservation = create_reservation(order.id, estimated_start_turn, estimated_end_turn)
+                add_to_schedule(drone, new_reservation)
+                
+                assign_order_to_drone(drone, order, path)
+                set_order_status(order, 'assigned')
+                BREAK // Move to the next order
+            END IF
+        END FOR
+    END FOR
+
+    // --- Execution Phase ---
+    FOR EACH drone IN all_drones:
+        current_task = get_task_for_current_turn(drone, t)
+
+        IF current_task is a delivery_mission:
+            command = get_next_action_from_path(drone.path)
+            issue_command(drone, command)
+            
+        ELSE IF NOT has_sufficient_battery AND is_idle:
+            path_to_charge = find_path_to_nearest_charging_station(drone)
+            command = get_next_action_from_path(path_to_charge)
+            issue_command(drone, command)
+            
+        ELSE:
+            issue_command(drone, "STAY")
+        END IF
+    END FOR
+    
+    print_all_drone_commands()
+
+END FOR
 ```
 
 ---
