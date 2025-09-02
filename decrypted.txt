@@ -1,0 +1,66 @@
+[shivamsah@imperfecta ~]$ cd CTFs/takneek
+[shivamsah@imperfecta takneek]$ source ~/venv/bin/activate
+(venv) [shivamsah@imperfecta takneek]$ python decrypt.py
+Password found in ./outs/out1.txt: horizon92
+Password found in ./outs/out2.txt: zenith617
+Password found in ./outs/out3.txt: yarrow32
+Password found in ./outs/out4.txt: obelisk7053
+Password found in ./outs/out5.txt: dagger27
+Password found in ./outs/out6.txt: lattice23
+Password found in ./outs/out7.txt: nebula54793
+Password found in ./outs/out8.txt: obelisk4985
+Password found in ./outs/out9.txt: zephyr54
+Password found in ./outs/out10.txt: zephyr43239
+Password found in ./outs/out11.txt: amber97707
+Password found in ./outs/out12.txt: quantum69715
+Password found in ./outs/out13.txt: zenith4286
+Password found in ./outs/out14.txt: anchor92738
+Password found in ./outs/out15.txt: dagger170
+Password found in ./outs/out16.txt: cipher8009
+Password found in ./outs/out17.txt: raptor3140
+Password found in ./outs/out18.txt: willow303
+Password found in ./outs/out19.txt: linchpin476
+Password found in ./outs/out20.txt: sentinel415
+Password found in ./outs/out21.txt: horizon17668
+Password found in ./outs/out22.txt: paradox13
+Password found in ./outs/out23.txt: yonder71206
+Password found in ./outs/out24.txt: monolith884
+Password found in ./outs/out25.txt: packet39
+Password found in ./outs/out26.txt: cipher97990
+Password found in ./outs/out27.txt: cursor3726
+Password found in ./outs/out28.txt: yarrow54
+Password found in ./outs/out29.txt: infosec21285
+Password found in ./outs/out30.txt: jaguar512
+Password found in ./outs/out31.txt: infosec7302
+Password found in ./outs/out32.txt: debugger4764
+Password found in ./outs/out33.txt: beacon490
+Password found in ./outs/out34.txt: raven5288
+Password found in ./outs/out35.txt: delta6979
+Password found in ./outs/out36.txt: anchor459
+Password found in ./outs/out37.txt: whisper68
+Password found in ./outs/out38.txt: sentinel56995
+Password found in ./outs/out39.txt: raven65
+Password found in ./outs/out40.txt: nebula70
+Password found in ./outs/out41.txt: canvas33
+Password found in ./outs/out42.txt: xenon556
+Password found in ./outs/out43.txt: whisper4791
+Password found in ./outs/out44.txt: lattice80662
+Password found in ./outs/out45.txt: binary71929
+Password found in ./outs/out46.txt: granite81942
+Password found in ./outs/out47.txt: zenith65430
+Password found in ./outs/out48.txt: binary5260
+Password not found in any file.
+(venv) [shivamsah@imperfecta takneek]$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
