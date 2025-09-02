@@ -79,16 +79,14 @@ Our approach is a **Greedy Nearest-Drone Strategy with Battery Safety Checks**.
 
    * All drones first move to the nearest charging station and recharge to full.
 
-2. **Order Activation:**
+2. **Order Assignment:**
 
-   * When new orders appear, check which drones are idle.
-
-3. **Order Assignment:**
-
-   * For each idle drone, select the nearest available order.
+   * As the orders are given in the input file, we check which of the idle drones are nearest.
+   * We occupy the nearest idle drone for the travel and set its status to non-idle for the travel time.
+   * If the nearest drone is not idle, we iterate to the next nearest until an idle drone is available.
    * If multiple orders are within reach, choose the one with the **earliest deadline**.
 
-4. **Path Computation:**
+3. **Path Computation:**
 
    * Compute Manhattan distance path:
 
@@ -96,16 +94,16 @@ Our approach is a **Greedy Nearest-Drone Strategy with Battery Safety Checks**.
      Drone -> Depot -> Professor -> Nearest Charging Station
      ```
 
-5. **Battery Check:**
+4. **Battery Check:**
 
    * Ensure that battery ≥ (distance\_to\_depot + distance\_to\_professor + distance\_to\_station + action\_costs).
    * If insufficient, send the drone to **charge first**.
 
-6. **Conflict Resolution:**
+5. **Conflict Resolution:**
 
    * If two drones are assigned the same order, break ties by shortest path, else by drone ID.
 
-7. **Execution:**
+6. **Execution:**
 
    * Drones follow assigned paths turn by turn.
 
