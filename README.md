@@ -321,3 +321,4 @@ Then we can obtain the decrypted message as `m = c^d modulo(N)`.<br>
 Then convert the obtained long integer into ascii (utf-8).<br>
 
 Attached in the `scripts` folder is the decryption script as `decrypt.txt`.<br>
+All the extracted passwords, the output of the script `decrypt.txt` is present in `decrypted.txt`.
