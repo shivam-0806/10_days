@@ -84,6 +84,7 @@ Our approach is a **Greedy Nearest-Drone Strategy with Battery Safety Checks**.
    * As the orders are given in the input file, we check which of the idle drones are nearest.
    * We occupy the nearest idle drone for the travel and set its status to non-idle for the travel time.
    * If the nearest drone is not idle, we iterate to the next nearest until an idle drone is available.
+   * Next iteration is done according to the order with the highest value.
    * If multiple orders are within reach, choose the one with the **earliest deadline**.
 
 3. **Path Computation:**
