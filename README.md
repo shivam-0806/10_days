@@ -40,11 +40,11 @@ Each drone can carry **one package at a time**. If a drone’s battery depletes 
 
 At each turn, every drone must perform exactly one action:
 
-1. **MOVE U/D/L/R** → Move one cell (cost: 1 energy)
-2. **PICKUP item\_id password** → Pick an item from a depot (cost: 5 energy)
-3. **DROPOFF item\_id** → Deliver to the correct professor (cost: 5 energy)
-4. **CHARGE** → Recharge battery at a charging station (+R units per turn)
-5. **STAY** → Idle (cost: 1 energy)
+1. **MOVE U/D/L/R** -> Move one cell (cost: 1 energy)
+2. **PICKUP item\_id password** -> Pick an item from a depot (cost: 5 energy)
+3. **DROPOFF item\_id** -> Deliver to the correct professor (cost: 5 energy)
+4. **CHARGE** -> Recharge battery at a charging station (+R units per turn)
+5. **STAY** -> Idle (cost: 1 energy)
 
 Invalid commands default to `STAY`.
 
