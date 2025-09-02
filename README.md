@@ -93,7 +93,7 @@ Our approach is a **Greedy Nearest-Drone Strategy with Battery Safety Checks**.
    * Compute Manhattan distance path:
 
      ```
-     Drone → Depot → Professor → Nearest Charging Station
+     Drone -> Depot -> Professor -> Nearest Charging Station
      ```
 
 5. **Battery Check:**
