@@ -1,7 +1,5 @@
-# 10_days
-
-
-# TAKNEEK PS – ZENITH (100 Points)
+# TAKNEEK PS – ZENITH
+# Submission by Pool Peshwas
 
 ## 10 Days Over Kanpur
 
@@ -186,11 +184,6 @@ Efficient for contest constraints.
 The implemented algorithm provides a **baseline strategy** for the “10 Days Over Kanpur” challenge. By focusing on battery safety and nearest-drone delivery allocation, it ensures reliable performance while maintaining simplicity. Although not globally optimal, it establishes a strong foundation for future enhancements such as value optimization and multi-drone coordination.
 
 ---
-
-⚡ This expanded version will easily stretch to **5+ pages** in DOCX/PDF format with normal formatting (12pt font, headings, spacing).
-
-Do you want me to **generate a nicely formatted Word/PDF file** out of this expanded documentation so you can submit it directly?
-
 
 ## Decryption
 
